@@ -54,10 +54,6 @@ let CupcakeModel = CupcakeModel_1 = class CupcakeModel extends mongo_1.Model {
                 type: Boolean,
                 required: true,
                 trim: true
-            },
-            photo: {
-                type: String,
-                trim: true
             }
         }, {
             versionKey: false

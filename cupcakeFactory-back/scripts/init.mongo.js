@@ -13,8 +13,7 @@ db.getCollection('cupcakes').insertMany([
         "glacage": "chocolat",
         "topping": "smarties"
     },
-    "custom": false,
-    "photo": "TODO"
+    "custom": false
   },
   {
     "nom": "Cupcake 2",
@@ -24,8 +23,7 @@ db.getCollection('cupcakes').insertMany([
       "glacage": "sucre",
       "topping": "vermicelles"
     },
-    "custom": false,
-    "photo": "TODO"
+    "custom": false
   },
   {
     "nom": "Cupcake 3",
@@ -35,7 +33,6 @@ db.getCollection('cupcakes').insertMany([
       "glacage": "vanille",
       "topping": "tagada"
     },
-    "custom": false,
-    "photo": "TODO"
+    "custom": false
   }
   ]);

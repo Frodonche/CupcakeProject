@@ -10,15 +10,13 @@ exports.CUPCAKE_PAYLOAD = Joi.object().keys({
         glacage: Joi.string(),
         topping: Joi.string()
     }).required(),
-    custom: Joi.boolean().required(),
-    photo: Joi.string(),
+    custom: Joi.boolean().required()
 });
 exports.CUPCAKE_RESPONSE = Joi.object().keys({
     id: exports.ID_PARAMETER,
     nom: Joi.reach(exports.CUPCAKE_PAYLOAD, 'nom'),
     composition: Joi.reach(exports.CUPCAKE_PAYLOAD, 'composition'),
-    custom: Joi.reach(exports.CUPCAKE_PAYLOAD, 'custom'),
-    photo: Joi.reach(exports.CUPCAKE_PAYLOAD, 'photo')
+    custom: Joi.reach(exports.CUPCAKE_PAYLOAD, 'custom')
 });
 exports.CUPCAKES_RESPONSE = Joi.array().items(exports.CUPCAKE_RESPONSE).unique().min(1);
 //# sourceMappingURL=index.js.map

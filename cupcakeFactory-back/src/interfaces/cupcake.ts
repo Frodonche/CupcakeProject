@@ -3,7 +3,6 @@ export interface Cupcake {
     nom: string;
     composition: Composition;
     custom: boolean;
-    photo?: string;
 }
 
 export interface Composition {

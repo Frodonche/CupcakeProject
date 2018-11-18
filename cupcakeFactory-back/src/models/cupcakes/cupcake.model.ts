@@ -51,10 +51,6 @@ export class CupcakeModel extends Model {
               type: Boolean,
               required: true,
               trim: true
-            },
-            photo: {
-              type: String,
-              trim: true
             }
         }, {
             versionKey: false
