@@ -44,6 +44,10 @@ let CupcakeModel = CupcakeModel_1 = class CupcakeModel extends mongo_1.Model {
                 glacage: {
                     type: String,
                     trim: true
+                },
+                topping: {
+                    type: String,
+                    trim: true
                 }
             },
             custom: {

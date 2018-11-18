@@ -10,7 +10,8 @@ db.getCollection('cupcakes').insertMany([
     "composition": {
         "pate": "classique",
         "garniture": "pepites",
-        "glacage": "chocolat"
+        "glacage": "chocolat",
+        "topping": "smarties"
     },
     "custom": false,
     "photo": "TODO"
@@ -20,7 +21,8 @@ db.getCollection('cupcakes').insertMany([
     "composition": {
       "pate": "tout choco",
       "garniture": "speculos",
-      "glacage": "sucre"
+      "glacage": "sucre",
+      "topping": "vermicelles"
     },
     "custom": false,
     "photo": "TODO"
@@ -30,7 +32,8 @@ db.getCollection('cupcakes').insertMany([
     "composition": {
       "pate": "classique",
       "garniture": "framboise",
-      "glacage": "vanille"
+      "glacage": "vanille",
+      "topping": "tagada"
     },
     "custom": false,
     "photo": "TODO"

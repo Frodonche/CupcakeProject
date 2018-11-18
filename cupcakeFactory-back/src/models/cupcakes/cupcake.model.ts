@@ -41,6 +41,10 @@ export class CupcakeModel extends Model {
               glacage: {
                 type: String,
                 trim: true
+              },
+              topping: {
+                type: String,
+                trim: true
               }
             },
             custom: {

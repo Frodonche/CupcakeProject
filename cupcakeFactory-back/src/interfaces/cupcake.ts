@@ -10,4 +10,5 @@ export interface Composition {
     pate: string;
     garniture: string;
     glacage: string;
+    topping: string;
 }
