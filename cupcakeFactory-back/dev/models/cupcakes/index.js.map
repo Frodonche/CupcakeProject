@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","sourceRoot":"","sources":["../../../src/models/cupcakes/index.ts"],"names":[],"mappings":";;;;;AAAA,qCAAgC","sourcesContent":["export * from './cupcake.model';\n"]}
