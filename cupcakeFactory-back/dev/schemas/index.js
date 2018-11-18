@@ -7,7 +7,8 @@ exports.CUPCAKE_PAYLOAD = Joi.object().keys({
     composition: Joi.object().keys({
         pate: Joi.string().required(),
         garniture: Joi.string(),
-        glacage: Joi.string()
+        glacage: Joi.string(),
+        topping: Joi.string()
     }).required(),
     custom: Joi.boolean().required(),
     photo: Joi.string(),
