@@ -1,0 +1,1 @@
+{"version":3,"file":"topping.js","sourceRoot":"","sources":["../../src/interfaces/topping.ts"],"names":[],"mappings":"","sourcesContent":["export interface Topping {\n  id?: string;\n  label: string;\n  src: string;\n}\n"]}

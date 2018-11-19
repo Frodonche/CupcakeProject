@@ -1,0 +1,1 @@
+{"version":3,"file":"garniture.js","sourceRoot":"","sources":["../../src/interfaces/garniture.ts"],"names":[],"mappings":"","sourcesContent":["export interface Garniture {\n  id?: string;\n  label: string;\n  src: string;\n}\n"]}

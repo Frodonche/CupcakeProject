@@ -17,9 +17,17 @@ const swag_1 = require("@hapiness/swag");
 const models_1 = require("./models");
 const routes_1 = require("./routes");
 const services_1 = require("./services");
+const services_2 = require("./services");
+const services_3 = require("./services");
+const services_4 = require("./services");
+const services_5 = require("./services");
 // factory to declare dependency between CupcalesDocumentService and MongoClientService
 // we use it to be sure that MongoClientService will be loaded before CupcakesDocumentService
 const cupcakesDocumentServiceFactory = (mongoClientService) => new services_1.CupcakesDocumentService(mongoClientService);
+const basesDocumentServiceFactory = (mongoClientService) => new services_2.BasesDocumentService(mongoClientService);
+const cremesDocumentServiceFactory = (mongoClientService) => new services_3.CremesDocumentService(mongoClientService);
+const garnituresDocumentServiceFactory = (mongoClientService) => new services_4.GarnituresDocumentService(mongoClientService);
+const toppingsDocumentServiceFactory = (mongoClientService) => new services_5.ToppingsDocumentService(mongoClientService);
 let ApplicationModule = class ApplicationModule {
     /**
      * Class constructor
@@ -66,12 +74,32 @@ ApplicationModule = __decorate([
             routes_1.PostCreateCupcakeRoute,
             routes_1.PutUpdateCupcakeRoute,
             routes_1.DeleteOneCupcakeRoute,
-            models_1.CupcakeModel
+            models_1.CupcakeModel,
+            routes_1.GetAllBasesRoute,
+            routes_1.GetOneBaseRoute,
+            models_1.BaseModel,
+            routes_1.GetAllCremesRoute,
+            routes_1.GetOneCremeRoute,
+            models_1.CremeModel,
+            routes_1.GetAllGarnituresRoute,
+            routes_1.GetOneGarnitureRoute,
+            models_1.GarnitureModel,
+            routes_1.GetAllToppingsRoute,
+            routes_1.GetOneToppingRoute,
+            models_1.ToppingModel,
         ],
         providers: [
             core_1.HttpServerService,
             services_1.CupcakesService,
-            { provide: services_1.CupcakesDocumentService, useFactory: cupcakesDocumentServiceFactory, deps: [mongo_1.MongoClientService] }
+            { provide: services_1.CupcakesDocumentService, useFactory: cupcakesDocumentServiceFactory, deps: [mongo_1.MongoClientService] },
+            services_2.BasesService,
+            { provide: services_2.BasesDocumentService, useFactory: basesDocumentServiceFactory, deps: [mongo_1.MongoClientService] },
+            services_3.CremesService,
+            { provide: services_3.CremesDocumentService, useFactory: cremesDocumentServiceFactory, deps: [mongo_1.MongoClientService] },
+            services_4.GarnituresService,
+            { provide: services_4.GarnituresDocumentService, useFactory: garnituresDocumentServiceFactory, deps: [mongo_1.MongoClientService] },
+            services_5.ToppingsService,
+            { provide: services_5.ToppingsDocumentService, useFactory: toppingsDocumentServiceFactory, deps: [mongo_1.MongoClientService] }
         ]
     }),
     __metadata("design:paramtypes", [core_1.HttpServerService, logger_1.LoggerService])

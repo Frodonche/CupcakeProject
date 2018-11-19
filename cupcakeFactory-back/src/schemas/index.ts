@@ -6,9 +6,9 @@ export const ID_PARAMETER = Joi.string().required();
 export const CUPCAKE_PAYLOAD = Joi.object().keys({
     nom: Joi.string(),
     composition: Joi.object().keys({
-        pate: Joi.string().required(),
+        base: Joi.string().required(),
         garniture: Joi.string(),
-        glacage: Joi.string(),
+        creme: Joi.string(),
         topping: Joi.string()
     }).required(),
     custom: Joi.boolean().required()
@@ -23,4 +23,15 @@ export const CUPCAKE_RESPONSE = Joi.object().keys({
 
 export const CUPCAKES_RESPONSE = Joi.array().items(
     CUPCAKE_RESPONSE
+).unique().min(1);
+
+
+export const COMPO_RESPONSE = Joi.object().keys({
+  id: ID_PARAMETER,
+  label: Joi.string().required(),
+  src: Joi.string().required()
+});
+
+export const COMPOS_RESPONSE = Joi.array().items(
+  COMPO_RESPONSE
 ).unique().min(1);

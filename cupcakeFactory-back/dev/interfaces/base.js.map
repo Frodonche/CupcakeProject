@@ -1,0 +1,1 @@
+{"version":3,"file":"base.js","sourceRoot":"","sources":["../../src/interfaces/base.ts"],"names":[],"mappings":"","sourcesContent":["export interface Base {\n    id?: string;\n    label: string;\n    src: string;\n}\n\n"]}

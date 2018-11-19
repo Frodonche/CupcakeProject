@@ -4,20 +4,39 @@ import { LoggerModule, LoggerService } from '@hapiness/logger';
 import { MongoClientService, MongoModule } from '@hapiness/mongo';
 import { SwagModule } from '@hapiness/swag';
 import { Observable } from 'rxjs';
-import { CupcakeModel } from './models';
+import { CupcakeModel, BaseModel, CremeModel, GarnitureModel, ToppingModel } from './models';
+
 import {
     DeleteOneCupcakeRoute,
     GetAllCupcakesRoute,
     GetOneCupcakeRoute,
     GetRandomCupcakeRoute,
     PostCreateCupcakeRoute,
-    PutUpdateCupcakeRoute
+    PutUpdateCupcakeRoute,
+    GetAllCremesRoute,
+    GetOneCremeRoute,
+    GetAllBasesRoute,
+    GetOneBaseRoute,
+    GetAllGarnituresRoute,
+    GetOneGarnitureRoute,
+    GetAllToppingsRoute,
+    GetOneToppingRoute,
 } from './routes';
+
 import { CupcakesDocumentService, CupcakesService } from './services';
+import{ BasesDocumentService, BasesService } from './services';
+import { CremesDocumentService, CremesService } from './services';
+import { GarnituresDocumentService, GarnituresService } from './services';
+import { ToppingsDocumentService, ToppingsService } from './services';
 
 // factory to declare dependency between CupcalesDocumentService and MongoClientService
 // we use it to be sure that MongoClientService will be loaded before CupcakesDocumentService
+
 const cupcakesDocumentServiceFactory = (mongoClientService: MongoClientService) => new CupcakesDocumentService(mongoClientService);
+const basesDocumentServiceFactory = (mongoClientService: MongoClientService) => new BasesDocumentService(mongoClientService);
+const cremesDocumentServiceFactory = (mongoClientService: MongoClientService) => new CremesDocumentService(mongoClientService);
+const garnituresDocumentServiceFactory = (mongoClientService: MongoClientService) => new GarnituresDocumentService(mongoClientService);
+const toppingsDocumentServiceFactory = (mongoClientService: MongoClientService) => new ToppingsDocumentService(mongoClientService);
 
 @HapinessModule({
     version: '1.0.0',
@@ -33,12 +52,32 @@ const cupcakesDocumentServiceFactory = (mongoClientService: MongoClientService) 
         PostCreateCupcakeRoute,
         PutUpdateCupcakeRoute,
         DeleteOneCupcakeRoute,
-        CupcakeModel
+        CupcakeModel,
+        GetAllBasesRoute,
+        GetOneBaseRoute,
+        BaseModel,
+        GetAllCremesRoute,
+        GetOneCremeRoute,
+        CremeModel,
+        GetAllGarnituresRoute,
+        GetOneGarnitureRoute,
+        GarnitureModel,
+        GetAllToppingsRoute,
+        GetOneToppingRoute,
+        ToppingModel,
     ],
     providers: [
         HttpServerService,
         CupcakesService,
-        { provide: CupcakesDocumentService, useFactory: cupcakesDocumentServiceFactory, deps: [ MongoClientService ] }
+        { provide: CupcakesDocumentService, useFactory: cupcakesDocumentServiceFactory, deps: [ MongoClientService ] },
+        BasesService,
+        { provide: BasesDocumentService, useFactory: basesDocumentServiceFactory, deps: [ MongoClientService ] },
+        CremesService,
+        { provide: CremesDocumentService, useFactory: cremesDocumentServiceFactory, deps: [ MongoClientService ] },
+        GarnituresService,
+        { provide: GarnituresDocumentService, useFactory: garnituresDocumentServiceFactory, deps: [ MongoClientService ] },
+        ToppingsService,
+        { provide: ToppingsDocumentService, useFactory: toppingsDocumentServiceFactory, deps: [ MongoClientService ] }
     ]
 })
 export class ApplicationModule implements OnStart, OnError {

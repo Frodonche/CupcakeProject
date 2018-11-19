@@ -25,8 +25,8 @@ class Packaging {
      * Class constructor
      *
      * @param files {FileObject[]} name of each files to package and flag to know if we need to delete it after
-     * @param src {string} src base path from current process
-     * @param dest {string} dest base path from current process
+     * @param src {string} src bases path from current process
+     * @param dest {string} dest bases path from current process
      */
     constructor(files: FileObject[], src: string = '', dest: string = '/dist') {
         this._files = files;
