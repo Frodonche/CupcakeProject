@@ -44,7 +44,7 @@ db.getCollection('bases').insertMany([
   },
   {
     "label": "barbe_a_papa",
-    "src": "base_barbe_à_papa.png"
+    "src": "base_barbe_a_papa.png"
   },
   {
     "label": "base",
@@ -76,7 +76,7 @@ db.getCollection('cremes').insertMany([
   },
   {
     "label": "barbe_a_papa",
-    "src": "creme_barbe_à_papa.png"
+    "src": "creme_barbe_a_papa.png"
   },
   {
     "label": "base",
