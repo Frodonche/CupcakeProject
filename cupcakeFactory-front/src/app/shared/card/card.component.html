@@ -1,10 +1,11 @@
 <mat-card class="mat-whiteframe-2dp">
   <mat-card-content>
   <mat-card-title-group>
-    <img mat-card-md-image src="{{ cupcake.photo }}">
     <mat-card-title>
-      <a [routerLink]="['/cupcake', cupcake._id]">
+      <a [routerLink]="['/cupcake', cupcake.id]">
         <span>{{ cupcake.nom }}</span>
+        <span>{{ cupcake.composition.base.label }}</span>
+        <span>{{ cupcake.composition.base.src }}</span>
       </a>
     </mat-card-title>
    <mat-card-subtitle class="contact-info">
@@ -13,7 +14,7 @@
 
   </mat-card-title-group>
     <div class="buttons-info">
-      <a mat-button title="Edit" [routerLink]="['/edit', cupcake._id]">
+      <a mat-button title="Edit" [routerLink]="['/edit', cupcake.id]">
         <mat-icon svgIcon="icon-edit"></mat-icon>
       </a>
       <button mat-button title="Delete" (click)="delete(cupcake)">

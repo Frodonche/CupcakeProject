@@ -14,14 +14,14 @@ const logger_1 = require("@hapiness/logger");
 const operators_1 = require("rxjs/operators");
 const schemas_1 = require("../../../schemas");
 const services_1 = require("../../../services");
-let GetAllCremesRoute = class GetAllCremesRoute {
+let GetAllGlacagesRoute = class GetAllGlacagesRoute {
     /**
      * Class constructor
-     * @param _cremesService
+     * @param _glacagesService
      * @param _logger
      */
-    constructor(_cremesService, _logger) {
-        this._cremesService = _cremesService;
+    constructor(_glacagesService, _logger) {
+        this._glacagesService = _glacagesService;
         this._logger = _logger;
     }
     /**
@@ -29,13 +29,13 @@ let GetAllCremesRoute = class GetAllCremesRoute {
      * @param request
      */
     onGet(request) {
-        return this._cremesService.listAll()
+        return this._glacagesService.listAll()
             .pipe(operators_1.tap(_ => this._logger.info(_)));
     }
 };
-GetAllCremesRoute = __decorate([
+GetAllGlacagesRoute = __decorate([
     core_1.Route({
-        path: '/api/cremes',
+        path: '/api/glacages',
         method: 'GET',
         config: {
             response: {
@@ -43,12 +43,12 @@ GetAllCremesRoute = __decorate([
                     200: schemas_1.COMPOS_RESPONSE
                 }
             },
-            description: 'Get all cremes',
-            notes: 'Returns an array of cremes or 204',
-            tags: ['api', 'cremes']
+            description: 'Get all glacages',
+            notes: 'Returns an array of glacages or 204',
+            tags: ['api', 'glacages']
         }
     }),
-    __metadata("design:paramtypes", [services_1.CremesService, logger_1.LoggerService])
-], GetAllCremesRoute);
-exports.GetAllCremesRoute = GetAllCremesRoute;
+    __metadata("design:paramtypes", [services_1.GlacagesService, logger_1.LoggerService])
+], GetAllGlacagesRoute);
+exports.GetAllGlacagesRoute = GetAllGlacagesRoute;
 //# sourceMappingURL=all.route.js.map

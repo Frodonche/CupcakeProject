@@ -4,7 +4,7 @@ import { LoggerModule, LoggerService } from '@hapiness/logger';
 import { MongoClientService, MongoModule } from '@hapiness/mongo';
 import { SwagModule } from '@hapiness/swag';
 import { Observable } from 'rxjs';
-import { CupcakeModel, BaseModel, CremeModel, GarnitureModel, ToppingModel } from './models';
+import { CupcakeModel, BaseModel, GlacageModel, GarnitureModel, ToppingModel } from './models';
 
 import {
     DeleteOneCupcakeRoute,
@@ -13,8 +13,8 @@ import {
     GetRandomCupcakeRoute,
     PostCreateCupcakeRoute,
     PutUpdateCupcakeRoute,
-    GetAllCremesRoute,
-    GetOneCremeRoute,
+    GetAllGlacagesRoute,
+    GetOneGlacageRoute,
     GetAllBasesRoute,
     GetOneBaseRoute,
     GetAllGarnituresRoute,
@@ -25,7 +25,7 @@ import {
 
 import { CupcakesDocumentService, CupcakesService } from './services';
 import{ BasesDocumentService, BasesService } from './services';
-import { CremesDocumentService, CremesService } from './services';
+import { GlacagesDocumentService, GlacagesService } from './services';
 import { GarnituresDocumentService, GarnituresService } from './services';
 import { ToppingsDocumentService, ToppingsService } from './services';
 
@@ -34,7 +34,7 @@ import { ToppingsDocumentService, ToppingsService } from './services';
 
 const cupcakesDocumentServiceFactory = (mongoClientService: MongoClientService) => new CupcakesDocumentService(mongoClientService);
 const basesDocumentServiceFactory = (mongoClientService: MongoClientService) => new BasesDocumentService(mongoClientService);
-const cremesDocumentServiceFactory = (mongoClientService: MongoClientService) => new CremesDocumentService(mongoClientService);
+const glacagesDocumentServiceFactory = (mongoClientService: MongoClientService) => new GlacagesDocumentService(mongoClientService);
 const garnituresDocumentServiceFactory = (mongoClientService: MongoClientService) => new GarnituresDocumentService(mongoClientService);
 const toppingsDocumentServiceFactory = (mongoClientService: MongoClientService) => new ToppingsDocumentService(mongoClientService);
 
@@ -56,9 +56,9 @@ const toppingsDocumentServiceFactory = (mongoClientService: MongoClientService) 
         GetAllBasesRoute,
         GetOneBaseRoute,
         BaseModel,
-        GetAllCremesRoute,
-        GetOneCremeRoute,
-        CremeModel,
+        GetAllGlacagesRoute,
+        GetOneGlacageRoute,
+        GlacageModel,
         GetAllGarnituresRoute,
         GetOneGarnitureRoute,
         GarnitureModel,
@@ -72,8 +72,8 @@ const toppingsDocumentServiceFactory = (mongoClientService: MongoClientService) 
         { provide: CupcakesDocumentService, useFactory: cupcakesDocumentServiceFactory, deps: [ MongoClientService ] },
         BasesService,
         { provide: BasesDocumentService, useFactory: basesDocumentServiceFactory, deps: [ MongoClientService ] },
-        CremesService,
-        { provide: CremesDocumentService, useFactory: cremesDocumentServiceFactory, deps: [ MongoClientService ] },
+        GlacagesService,
+        { provide: GlacagesDocumentService, useFactory: glacagesDocumentServiceFactory, deps: [ MongoClientService ] },
         GarnituresService,
         { provide: GarnituresDocumentService, useFactory: garnituresDocumentServiceFactory, deps: [ MongoClientService ] },
         ToppingsService,

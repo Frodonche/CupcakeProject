@@ -1,13 +1,18 @@
+import {Base} from './base';
+import {Topping} from './topping';
+import {Garniture} from './garniture';
+import {Glacage} from './glacage';
+
 export interface Cupcake {
     id?: string;
     nom: string;
-    composition: Composition;
-    custom: boolean;
+    composition: Composition
+    createur: string;
 }
 
 export interface Composition {
-    pate: string;
-    garniture: string;
-    glacage: string;
-    topping: string;
+    base: Base;
+    glacage: Glacage;
+    topping: Topping;
+    garniture: Garniture;
 }

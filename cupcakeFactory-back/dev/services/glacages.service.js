@@ -13,39 +13,39 @@ const biim_1 = require("@hapiness/biim");
 const core_1 = require("@hapiness/core");
 const rxjs_1 = require("rxjs");
 const operators_1 = require("rxjs/operators");
-const cremes_document_service_1 = require("./cremes-document.service");
-let CremesService = class CremesService {
+const glacages_document_service_1 = require("./glacages-document.service");
+let GlacagesService = class GlacagesService {
     /**
      * Class constructor
      */
-    constructor(_cremesDocumentService) {
-        this._cremesDocumentService = _cremesDocumentService;
+    constructor(_glacagesDocumentService) {
+        this._glacagesDocumentService = _glacagesDocumentService;
     }
     /**
-     * Returns all existing cremes in the list
+     * Returns all existing glacages in the list
      *
-     * @returns {Observable<Creme[] | void>}
+     * @returns {Observable<Glacage[] | void>}
      */
     listAll() {
-        return this._cremesDocumentService.find();
+        return this._glacagesDocumentService.find();
     }
     /**
-     * Returns one cremes of the list matching id in parameter
+     * Returns one glacages of the list matching id in parameter
      *
-     * @param {string} id of the cremes
+     * @param {string} id of the glacages
      *
-     * @returns {Observable<Creme>}
+     * @returns {Observable<Glacage>}
      */
     one(id) {
-        return this._cremesDocumentService.findById(id)
+        return this._glacagesDocumentService.findById(id)
             .pipe(operators_1.catchError(e => rxjs_1.throwError(biim_1.Biim.preconditionFailed(e.message))), operators_1.flatMap(_ => !!_ ?
             rxjs_1.of(_) :
-            rxjs_1.throwError(biim_1.Biim.notFound(`Aucune creme avec l'id '${id}' trouve`))));
+            rxjs_1.throwError(biim_1.Biim.notFound(`Aucun glacage avec l'id '${id}' trouve`))));
     }
 };
-CremesService = __decorate([
+GlacagesService = __decorate([
     core_1.Injectable(),
-    __metadata("design:paramtypes", [cremes_document_service_1.CremesDocumentService])
-], CremesService);
-exports.CremesService = CremesService;
-//# sourceMappingURL=cremes.service.js.map
+    __metadata("design:paramtypes", [glacages_document_service_1.GlacagesDocumentService])
+], GlacagesService);
+exports.GlacagesService = GlacagesService;
+//# sourceMappingURL=glacages.service.js.map

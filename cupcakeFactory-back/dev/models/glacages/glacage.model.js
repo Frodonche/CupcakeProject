@@ -9,10 +9,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var CremeModel_1;
+var GlacageModel_1;
 const mongo_1 = require("@hapiness/mongo");
 // import * as mongoose from 'mongoose';
-let CremeModel = CremeModel_1 = class CremeModel extends mongo_1.Model {
+let GlacageModel = GlacageModel_1 = class GlacageModel extends mongo_1.Model {
     /**
      * Class constructor
      *
@@ -20,7 +20,7 @@ let CremeModel = CremeModel_1 = class CremeModel extends mongo_1.Model {
      */
     constructor(_mongoClientService) {
         // call parent constructor
-        super(CremeModel_1);
+        super(GlacageModel_1);
         this._mongoClientService = _mongoClientService;
         // get dao
         const dao = this._mongoClientService.getDao(this.connectionOptions);
@@ -49,12 +49,12 @@ let CremeModel = CremeModel_1 = class CremeModel extends mongo_1.Model {
         });
     }
 };
-CremeModel = CremeModel_1 = __decorate([
+GlacageModel = GlacageModel_1 = __decorate([
     mongo_1.MongoModel({
         adapter: 'mongoose',
-        collection: 'cremes'
+        collection: 'glacages'
     }),
     __metadata("design:paramtypes", [mongo_1.MongoClientService])
-], CremeModel);
-exports.CremeModel = CremeModel;
-//# sourceMappingURL=creme.model.js.map
+], GlacageModel);
+exports.GlacageModel = GlacageModel;
+//# sourceMappingURL=glacage.model.js.map

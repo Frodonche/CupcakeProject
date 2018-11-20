@@ -3,9 +3,9 @@ import { Model, MongoClientService, MongoModel } from '@hapiness/mongo';
 
 @MongoModel({
   adapter: 'mongoose',
-  collection: 'cremes'
+  collection: 'glacages'
 })
-export class CremeModel extends Model {
+export class GlacageModel extends Model {
   // property to store schema
   readonly schema: any;
 
@@ -16,7 +16,7 @@ export class CremeModel extends Model {
    */
   constructor(private _mongoClientService: MongoClientService) {
     // call parent constructor
-    super(CremeModel);
+    super(GlacageModel);
 
     // get dao
     const dao = this._mongoClientService.getDao(this.connectionOptions);

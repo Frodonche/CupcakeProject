@@ -14,14 +14,14 @@ const logger_1 = require("@hapiness/logger");
 const operators_1 = require("rxjs/operators");
 const schemas_1 = require("../../../schemas");
 const services_1 = require("../../../services");
-let GetOneCremeRoute = class GetOneCremeRoute {
+let GetOneGlacageRoute = class GetOneGlacageRoute {
     /**
      * Class constructor
-     * @param _cremesService
+     * @param _glacagesService
      * @param _logger
      */
-    constructor(_cremesService, _logger) {
-        this._cremesService = _cremesService;
+    constructor(_glacagesService, _logger) {
+        this._glacagesService = _glacagesService;
         this._logger = _logger;
     }
     /**
@@ -29,13 +29,13 @@ let GetOneCremeRoute = class GetOneCremeRoute {
      * @param request
      */
     onGet(request) {
-        return this._cremesService.one(request.params.id)
+        return this._glacagesService.one(request.params.id)
             .pipe(operators_1.tap(_ => this._logger.info(_)));
     }
 };
-GetOneCremeRoute = __decorate([
+GetOneGlacageRoute = __decorate([
     core_1.Route({
-        path: '/api/cremes/{id}',
+        path: '/api/glacages/{id}',
         method: 'GET',
         config: {
             validate: {
@@ -48,12 +48,12 @@ GetOneCremeRoute = __decorate([
                     200: schemas_1.COMPO_RESPONSE
                 }
             },
-            description: 'Get one creme',
-            notes: 'Returns one creme for the given id in path parameter',
-            tags: ['api', 'cremes']
+            description: 'Get one glacage',
+            notes: 'Returns one glacage for the given id in path parameter',
+            tags: ['api', 'glacages']
         }
     }),
-    __metadata("design:paramtypes", [services_1.CremesService, logger_1.LoggerService])
-], GetOneCremeRoute);
-exports.GetOneCremeRoute = GetOneCremeRoute;
+    __metadata("design:paramtypes", [services_1.GlacagesService, logger_1.LoggerService])
+], GetOneGlacageRoute);
+exports.GetOneGlacageRoute = GetOneGlacageRoute;
 //# sourceMappingURL=one.route.js.map

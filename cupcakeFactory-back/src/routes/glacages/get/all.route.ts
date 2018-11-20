@@ -2,12 +2,12 @@ import { OnGet, Request, Route } from '@hapiness/core';
 import { LoggerService } from '@hapiness/logger';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
-import { Creme } from '../../../interfaces';
+import { Glacage } from '../../../interfaces';
 import { COMPOS_RESPONSE } from '../../../schemas';
-import { CremesService } from '../../../services';
+import { GlacagesService } from '../../../services';
 
 @Route({
-    path: '/api/cremes',
+    path: '/api/glacages',
     method: 'GET',
     config: {
         response: {
@@ -15,26 +15,26 @@ import { CremesService } from '../../../services';
                 200: COMPOS_RESPONSE
             }
         },
-        description: 'Get all cremes',
-        notes: 'Returns an array of cremes or 204',
-        tags: [ 'api', 'cremes' ]
+        description: 'Get all glacages',
+        notes: 'Returns an array of glacages or 204',
+        tags: [ 'api', 'glacages' ]
     }
 })
-export class GetAllCremesRoute implements OnGet {
+export class GetAllGlacagesRoute implements OnGet {
     /**
      * Class constructor
-     * @param _cremesService
+     * @param _glacagesService
      * @param _logger
      */
-    constructor(private _cremesService: CremesService, private _logger: LoggerService) {
+    constructor(private _glacagesService: GlacagesService, private _logger: LoggerService) {
     }
 
     /**
      * OnGet implementation
      * @param request
      */
-    onGet(request: Request): Observable<Creme[] | void> {
-        return this._cremesService.listAll()
+    onGet(request: Request): Observable<Glacage[] | void> {
+        return this._glacagesService.listAll()
             .pipe(
                 tap(_ => this._logger.info(_))
             );

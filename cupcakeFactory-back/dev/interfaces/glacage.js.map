@@ -1,0 +1,1 @@
+{"version":3,"file":"glacage.js","sourceRoot":"","sources":["../../src/interfaces/glacage.ts"],"names":[],"mappings":"","sourcesContent":["export interface Glacage {\n  id?: string;\n  label: string;\n  src: string;\n}\n"]}

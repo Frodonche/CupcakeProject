@@ -8,32 +8,68 @@ db.getCollection('cupcakes').insertMany([
   {
     "nom": "Cupcake 1",
     "composition": {
-        "base": "classique",
-        "creme": "pepites",
-        "garniture": "chocolat",
-        "topping": "smarties"
+        "base": {
+          "label": "banane",
+          "src": "base_banane.png"
+        },
+        "glacage": {
+          "label": "banane",
+          "src": "glacage_banane.png"
+        },
+        "garniture": {
+          "label": "cerise",
+          "src": "cerise.png"
+        },
+        "topping": {
+          "label": "stars",
+          "src": "stars.png"
+        }
     },
-    "custom": false
+    "createur": "Moi"
   },
   {
     "nom": "Cupcake 2",
     "composition": {
-      "base": "tout choco",
-      "creme": "speculos",
-      "garniture": "sucre",
-      "topping": "vermicelles"
+      "base": {
+        "label": "pomme",
+        "src": "base_pomme.png"
+      },
+      "glacage":  {
+        "label": "fraise",
+        "src": "glacage_fraise.png"
+      },
+      "garniture": {
+        "label": "fraise",
+        "src": "fraise.png"
+      },
+      "topping": {
+        "label": "coeurs",
+        "src": "coeurs.png"
+      }
     },
-    "custom": false
+    "createur": "Elle"
   },
   {
     "nom": "Cupcake 3",
     "composition": {
-      "base": "classique",
-      "creme": "framboise",
-      "garniture": "vanille",
-      "topping": "tagada"
+      "base": {
+        "label": "schtroumf",
+        "src": "base_schtroumf.png"
+      },
+      "glacage": {
+        "label": "barbe_a_papa",
+        "src": "glacage_barbe_a_papa.png"
+      },
+      "garniture": {
+        "label": "cerise",
+        "src": "cerise.png"
+      },
+      "topping":  {
+        "label": "spinkles",
+        "src": "spinkles.png"
+      }
     },
-    "custom": false
+    "createur": "Lui"
   }
   ]);
 
@@ -69,34 +105,34 @@ db.getCollection('bases').insertMany([
 ]);
 
 
-db.getCollection('cremes').insertMany([
+db.getCollection('glacages').insertMany([
   {
     "label": "banane",
-    "src": "creme_banane.png"
+    "src": "glacage_banane.png"
   },
   {
     "label": "barbe_a_papa",
-    "src": "creme_barbe_a_papa.png"
+    "src": "glacage_barbe_a_papa.png"
   },
   {
     "label": "base",
-    "src": "creme_base.png"
+    "src": "glacage_base.png"
   },
   {
     "label": "chocolat",
-    "src": "creme_chocolat.png"
+    "src": "glacage_chocolat.png"
   },
   {
     "label": "fraise",
-    "src": "creme_fraise.png"
+    "src": "glacage_fraise.png"
   },
   {
     "label": "pomme",
-    "src": "creme_pomme.png"
+    "src": "glacage_pomme.png"
   },
   {
     "label": "schtroumf",
-    "src": "creme_schtroumf.png"
+    "src": "glacage_schtroumf.png"
   }
 ]);
 
@@ -111,7 +147,7 @@ db.getCollection('garnitures').insertMany([
   }
 ]);
 
-db.getCollection('toppings').insertManyf([
+db.getCollection('toppings').insertMany([
   {
     "label": "coeurs",
     "src": "coeurs.png"

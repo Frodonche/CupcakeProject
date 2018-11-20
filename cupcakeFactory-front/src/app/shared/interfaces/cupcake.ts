@@ -6,13 +6,13 @@ export interface Cupcake {
 }
 
 export interface Composition {
-  pate?: Pate;
+  base?: Base;
   glacage?: Glacage;
   topping?: Topping;
   garniture?: Garniture;
 }
 
-export interface Pate {
+export interface Base {
   id?: string;
   label: string;
   src: string;

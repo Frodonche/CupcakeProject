@@ -2,12 +2,12 @@ import { OnGet, Request, Route } from '@hapiness/core';
 import { LoggerService } from '@hapiness/logger';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
-import { Creme } from '../../../interfaces';
+import { Glacage } from '../../../interfaces';
 import { ID_PARAMETER, COMPO_RESPONSE } from '../../../schemas';
-import { CremesService } from '../../../services';
+import { GlacagesService } from '../../../services';
 
 @Route({
-    path: '/api/cremes/{id}',
+    path: '/api/glacages/{id}',
     method: 'GET',
     config: {
         validate: {
@@ -20,26 +20,26 @@ import { CremesService } from '../../../services';
                 200: COMPO_RESPONSE
             }
         },
-        description: 'Get one creme',
-        notes: 'Returns one creme for the given id in path parameter',
-        tags: [ 'api', 'cremes' ]
+        description: 'Get one glacage',
+        notes: 'Returns one glacage for the given id in path parameter',
+        tags: [ 'api', 'glacages' ]
     }
 })
-export class GetOneCremeRoute implements OnGet {
+export class GetOneGlacageRoute implements OnGet {
     /**
      * Class constructor
-     * @param _cremesService
+     * @param _glacagesService
      * @param _logger
      */
-    constructor(private _cremesService: CremesService, private _logger: LoggerService) {
+    constructor(private _glacagesService: GlacagesService, private _logger: LoggerService) {
     }
 
     /**
      * OnGet implementation
      * @param request
      */
-    onGet(request: Request): Observable<Creme> {
-        return this._cremesService.one(request.params.id)
+    onGet(request: Request): Observable<Glacage> {
+        return this._glacagesService.one(request.params.id)
             .pipe(
                 tap(_ => this._logger.info(_))
             );

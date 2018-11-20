@@ -13,8 +13,8 @@ const core_1 = require("@hapiness/core");
 const mongo_1 = require("@hapiness/mongo");
 const rxjs_1 = require("rxjs");
 const operators_1 = require("rxjs/operators");
-const cremes_1 = require("../models/cremes");
-let CremesDocumentService = class CremesDocumentService {
+const glacages_1 = require("../models/glacages");
+let GlacagesDocumentService = class GlacagesDocumentService {
     /**
      * Class constructor
      *
@@ -22,32 +22,32 @@ let CremesDocumentService = class CremesDocumentService {
      */
     constructor(_mongoClientService) {
         this._mongoClientService = _mongoClientService;
-        this._document = this._mongoClientService.getModel({ adapter: 'mongoose' }, cremes_1.CremeModel);
+        this._document = this._mongoClientService.getModel({ adapter: 'mongoose' }, glacages_1.GlacageModel);
     }
     /**
-     * Call mongoose method, call toJSON on each result and returns Creme[] or undefined
+     * Call mongoose method, call toJSON on each result and returns Glacage[] or undefined
      *
-     * @return {Observable<Creme[] | void>}
+     * @return {Observable<Glacage[] | void>}
      */
     find() {
         return rxjs_1.from(this._document.find({}))
             .pipe(operators_1.map((docs) => (!!docs && docs.length > 0) ? docs.map(_ => _.toJSON()) : undefined));
     }
     /**
-     * Returns one creme of the list matching id in parameter
+     * Returns one glacage of the list matching id in parameter
      *
-     * @param {string} id of the creme in the db
+     * @param {string} id of the glacage in the db
      *
-     * @return {Observable<Creme | void>}
+     * @return {Observable<Glacage | void>}
      */
     findById(id) {
         return rxjs_1.from(this._document.findById(id))
             .pipe(operators_1.map((doc) => !!doc ? doc.toJSON() : undefined));
     }
 };
-CremesDocumentService = __decorate([
+GlacagesDocumentService = __decorate([
     core_1.Injectable(),
     __metadata("design:paramtypes", [mongo_1.MongoClientService])
-], CremesDocumentService);
-exports.CremesDocumentService = CremesDocumentService;
-//# sourceMappingURL=cremes-document.service.js.map
+], GlacagesDocumentService);
+exports.GlacagesDocumentService = GlacagesDocumentService;
+//# sourceMappingURL=glacages-document.service.js.map

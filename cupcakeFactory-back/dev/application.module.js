@@ -25,7 +25,7 @@ const services_5 = require("./services");
 // we use it to be sure that MongoClientService will be loaded before CupcakesDocumentService
 const cupcakesDocumentServiceFactory = (mongoClientService) => new services_1.CupcakesDocumentService(mongoClientService);
 const basesDocumentServiceFactory = (mongoClientService) => new services_2.BasesDocumentService(mongoClientService);
-const cremesDocumentServiceFactory = (mongoClientService) => new services_3.CremesDocumentService(mongoClientService);
+const glacagesDocumentServiceFactory = (mongoClientService) => new services_3.GlacagesDocumentService(mongoClientService);
 const garnituresDocumentServiceFactory = (mongoClientService) => new services_4.GarnituresDocumentService(mongoClientService);
 const toppingsDocumentServiceFactory = (mongoClientService) => new services_5.ToppingsDocumentService(mongoClientService);
 let ApplicationModule = class ApplicationModule {
@@ -78,9 +78,9 @@ ApplicationModule = __decorate([
             routes_1.GetAllBasesRoute,
             routes_1.GetOneBaseRoute,
             models_1.BaseModel,
-            routes_1.GetAllCremesRoute,
-            routes_1.GetOneCremeRoute,
-            models_1.CremeModel,
+            routes_1.GetAllGlacagesRoute,
+            routes_1.GetOneGlacageRoute,
+            models_1.GlacageModel,
             routes_1.GetAllGarnituresRoute,
             routes_1.GetOneGarnitureRoute,
             models_1.GarnitureModel,
@@ -94,8 +94,8 @@ ApplicationModule = __decorate([
             { provide: services_1.CupcakesDocumentService, useFactory: cupcakesDocumentServiceFactory, deps: [mongo_1.MongoClientService] },
             services_2.BasesService,
             { provide: services_2.BasesDocumentService, useFactory: basesDocumentServiceFactory, deps: [mongo_1.MongoClientService] },
-            services_3.CremesService,
-            { provide: services_3.CremesDocumentService, useFactory: cremesDocumentServiceFactory, deps: [mongo_1.MongoClientService] },
+            services_3.GlacagesService,
+            { provide: services_3.GlacagesDocumentService, useFactory: glacagesDocumentServiceFactory, deps: [mongo_1.MongoClientService] },
             services_4.GarnituresService,
             { provide: services_4.GarnituresDocumentService, useFactory: garnituresDocumentServiceFactory, deps: [mongo_1.MongoClientService] },
             services_5.ToppingsService,

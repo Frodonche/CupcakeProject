@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import {Cupcake, Garniture, Glacage, Pate, Topping} from '../interfaces/cupcake';
+import {Cupcake, Garniture, Glacage, Base, Topping} from '../interfaces/cupcake';
 import {CupcakesService} from "../services/cupcakes.service";
 
 @Component({
@@ -14,7 +14,7 @@ export class FormComponent implements OnInit, OnChanges {
   // private property to store model value
   private _model: Cupcake;
 
-  private _pates: Pate[];
+  private _bases: Base[];
   private _glacages: Glacage[];
   private _toppings: Topping[];
   private _garnitures: Garniture[];
@@ -35,10 +35,10 @@ export class FormComponent implements OnInit, OnChanges {
   }
 
   /**
-   * Returns private property _pates
+   * Returns private property _bases
    */
-  get pates(): Pate[] {
-    return this._pates;
+  get bases(): Base[] {
+    return this._bases;
   }
 
   /**
@@ -112,7 +112,7 @@ export class FormComponent implements OnInit, OnChanges {
    * OnInit implementation
    */
   ngOnInit() {
-    this._cupcakesService.fetchPates().subscribe((pates: Pate[]) => this._pates = pates);
+    this._cupcakesService.fetchBases().subscribe((bases: Base[]) => this._bases = bases);
     this._cupcakesService.fetchGlacages().subscribe((glacages: Glacage[]) => this._glacages = glacages);
     this._cupcakesService.fetchToppings().subscribe((toppings: Topping[]) => this._toppings = toppings);
     this._cupcakesService.fetchGarnitures().subscribe((garnitures: Garniture[]) => this._garnitures = garnitures);
@@ -130,7 +130,7 @@ export class FormComponent implements OnInit, OnChanges {
       this._model = {
         nom: '',
         composition: {
-          pate: {
+          base: {
             label: '',
             src: ''
           },
@@ -177,7 +177,7 @@ export class FormComponent implements OnInit, OnChanges {
         Validators.required, Validators.minLength(2)
       ])),
       composition: new FormGroup({
-        pate: new FormGroup({
+        base: new FormGroup({
           label: new FormControl(''),
           src: new FormControl('')
         }),

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { Observable } from 'rxjs';
-import {Cupcake, Garniture, Glacage, Pate, Topping} from '../interfaces/cupcake';
+import {Cupcake, Garniture, Glacage, Base, Topping} from '../interfaces/cupcake';
 import { defaultIfEmpty, filter, map } from 'rxjs/operators';
 
 @Injectable({
@@ -18,7 +18,7 @@ export class CupcakesService {
     this._defaultCupcake = {
         nom: 'Cupcake',
       composition: {
-        pate: {
+        base: {
           label: '',
           src: ''
         },
@@ -68,10 +68,10 @@ export class CupcakesService {
   }
 
   /**
-   * Function to return list of pates
+   * Function to return list of bases
    */
-  fetchPates(): Observable<Pate[]> {
-    return this._http.get<Pate[]>(this._backendURL.allPates)
+  fetchBases(): Observable<Base[]> {
+    return this._http.get<Base[]>(this._backendURL.allBases)
       .pipe(
         filter(_ => !!_),
         defaultIfEmpty([])

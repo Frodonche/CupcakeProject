@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Cupcake, Pate, Glacage, Garniture, Topping } from '../interfaces/cupcake';
+import { Cupcake, Base, Glacage, Garniture, Topping } from '../interfaces/cupcake';
 import { Router } from '@angular/router';
 
 @Component({

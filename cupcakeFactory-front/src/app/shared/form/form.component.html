@@ -39,9 +39,9 @@
 
     <p formGroupName="composition">
       <mat-form-field class="full-width">
-        <mat-select placeholder="Pate" formControlName="Pate" name="Pate">
-          <mat-option *ngFor="let pate of pates" [id]="pate.id">
-            {{pate.label}}
+        <mat-select placeholder="Base" formControlName="Base" name="Base">
+          <mat-option *ngFor="let base of bases" [id]="base.id">
+            {{base.label}}
           </mat-option>
         </mat-select>
       </mat-form-field>
@@ -81,7 +81,7 @@
   </form></mat-grid-tile>
     <mat-grid-tile>
       <div >
-        <img class="cupcake" name="pate" src="../../../assets/res/Bases/base_barbe_a_papa.png">
+        <img class="cupcake" name="base" src="../../../assets/res/Bases/base_barbe_a_papa.png">
         <img class="cupcake" name="glacage" src="../../../assets/res/Cremes/creme_pomme.png">
         <img class="cupcake" name="topping" src="../../../assets/res/Topping/coeurs.png">
         <img class="cupcake" name="garniture" src="../../../assets/res/Garnitures/cerise.png">

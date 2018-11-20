@@ -1,1 +1,0 @@
-{"version":3,"file":"creme.js","sourceRoot":"","sources":["../../src/interfaces/creme.ts"],"names":[],"mappings":"","sourcesContent":["export interface Creme {\n  id?: string;\n  label: string;\n  src: string;\n}\n"]}

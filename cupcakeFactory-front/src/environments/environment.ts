@@ -11,7 +11,7 @@ export const environment = {
     endpoints: {
       allCupcakes: '/api/cupcakes',
       oneCupcakes: '/api/cupcakes/:id',
-      allPates: '/api/pates',
+      allBases: '/api/bases',
       allGlacages: '/api/glacages',
       allToppings: '/api/toppings',
       allGarnitures: '/api/garnitures'
