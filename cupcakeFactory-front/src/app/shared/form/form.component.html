@@ -1,4 +1,4 @@
-<h2 mat-dialog-title *ngIf="isUpdateMode">Update {{ form.get('name').value }} {{ form.get('createur').value }}</h2>
+<h2 mat-dialog-title *ngIf="isUpdateMode">Update {{ form.get('nom').value }} {{ form.get('createur').value }}</h2>
 <h2 mat-dialog-title *ngIf="!isUpdateMode">Create new cupcake</h2>
 
 <mat-dialog-content>
@@ -15,22 +15,22 @@
     <table class="full-width" cellspacing="0">
       <tr>
         <td>
-          <mat-form-field class="full-width" [class.mgb15]="form.get('name').dirty && form.get('name').invalid">
-            <input matInput placeholder="Cupcake's name" formControlName="name" minlength="2" required name="name" />
-            <mat-error *ngIf="form.get('name').dirty && form.get('name').hasError('required')">
-              Cupcake's name is <strong>required</strong>
+          <mat-form-field class="full-width" [class.mgb15]="form.get('nom').dirty && form.get('nom').invalid">
+            <input matInput placeholder="Nom du Cupcake" formControlName="nom" minlength="2" required name="nom" />
+            <mat-error *ngIf="form.get('nom').dirty && form.get('nom').hasError('required')">
+              Le nom du Cupcake est <strong>required</strong>
             </mat-error>
-            <mat-error *ngIf="form.get('name').dirty && form.get('name').hasError('minlength')">
-              Cupcake's name is <strong>2 chars min</strong>
+            <mat-error *ngIf="form.get('nom').dirty && form.get('nom').hasError('minlength')">
+              Le nom du Cupcake est <strong>2 chars min</strong>
             </mat-error>
           </mat-form-field>
           <mat-form-field class="full-width">
-            <input matInput placeholder="Creator" formControlName="creator" minlength="2" required name="creator" />
-            <mat-error *ngIf="form.get('creator').dirty && form.get('creator').hasError('required')">
-              Creator is <strong>required</strong>
+            <input matInput placeholder="Createur" formControlName="createur" minlength="2" required name="createur" />
+            <mat-error *ngIf="form.get('createur').dirty && form.get('createur').hasError('required')">
+              Createur est <strong>required</strong>
             </mat-error>
-            <mat-error *ngIf="form.get('creator').dirty && form.get('creator').hasError('minlength')">
-              Creator is <strong>2 chars min</strong>
+            <mat-error *ngIf="form.get('createur').dirty && form.get('createur').hasError('minlength')">
+              Createur est <strong>2 chars min</strong>
             </mat-error>
           </mat-form-field>
         </td>
