@@ -25,7 +25,7 @@ import { CardComponent } from './shared/card/card.component';
 import { DialogComponent } from './shared/dialog/dialog.component';
 import { FormComponent } from './shared/form/form.component';
 import { NaPipe } from './shared/pipes/na.pipe';
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
