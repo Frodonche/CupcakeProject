@@ -1,11 +1,9 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Cupcake } from '../interfaces/cupcake';
-import { of } from 'rxjs';
-import { filter } from 'rxjs/operators';
+import { Cupcake, Pate, Glacage, Garniture, Topping } from '../interfaces/cupcake';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'nwt-card',
+  selector: 'app-card',
   templateUrl: './card.component.html',
   styleUrls: [ './card.component.css' ]
 })

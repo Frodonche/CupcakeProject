@@ -8,7 +8,7 @@ import { CupcakesService } from '../shared/services/cupcakes.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'nwt-cupcakes',
+  selector: 'app-cupcakes',
   templateUrl: './cupcakes.component.html',
   styleUrls: [ './cupcakes.component.css' ]
 })
@@ -58,7 +58,7 @@ export class CupcakesComponent implements OnInit {
    */
   ngOnInit() {
     this._cupcakesService
-      .fetch().subscribe((cupcakes: Cupcakes[]) => this._cupcakes = cupcakes);
+      .fetch().subscribe((cupcakes: Cupcake[]) => this._cupcakes = cupcakes);
   }
 
   /**

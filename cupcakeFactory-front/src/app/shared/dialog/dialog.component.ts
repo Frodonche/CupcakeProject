@@ -3,7 +3,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 import { Cupcake } from '../interfaces/cupcake';
 
 @Component({
-  selector: 'nwt-add-dialog',
+  selector: 'app-add-dialog',
   templateUrl: './dialog.component.html',
   styleUrls: [ './dialog.component.css' ]
 })

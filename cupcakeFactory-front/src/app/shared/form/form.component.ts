@@ -1,10 +1,10 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Cupcake } from '../interfaces/cupcake';
-import { CustomValidators } from './custom-validators';
+import {Cupcake, Garniture, Glacage, Pate, Topping} from '../interfaces/cupcake';
+import {CupcakesService} from "../services/cupcakes.service";
 
 @Component({
-  selector: 'nwt-form',
+  selector: 'app-form',
   templateUrl: './form.component.html',
   styleUrls: [ './form.component.css' ]
 })
@@ -13,6 +13,11 @@ export class FormComponent implements OnInit, OnChanges {
   private _isUpdateMode: boolean;
   // private property to store model value
   private _model: Cupcake;
+
+  private _pates: Pate[];
+  private _glacages: Glacage[];
+  private _toppings: Topping[];
+  private _garnitures: Garniture[];
   // private property to store cancel$ value
   private readonly _cancel$: EventEmitter<void>;
   // private property to store submit$ value
@@ -23,11 +28,40 @@ export class FormComponent implements OnInit, OnChanges {
   /**
    * Component constructor
    */
-  constructor() {
+  constructor( private _cupcakesService: CupcakesService) {
     this._submit$ = new EventEmitter<Cupcake>();
     this._cancel$ = new EventEmitter<void>();
     this._form = this._buildForm();
   }
+
+  /**
+   * Returns private property _pates
+   */
+  get pates(): Pate[] {
+    return this._pates;
+  }
+
+  /**
+   * Returns private property _glacages
+   */
+  get glacages(): Glacage[] {
+    return this._glacages;
+  }
+
+  /**
+   * Returns private property _toppings
+   */
+  get toppings(): Topping[] {
+    return this._toppings;
+  }
+
+  /**
+   * Returns private property _garnitures
+   */
+  get garnitures(): Garniture[] {
+    return this._garnitures;
+  }
+
 
   /**
    * Sets private property _model
@@ -78,6 +112,10 @@ export class FormComponent implements OnInit, OnChanges {
    * OnInit implementation
    */
   ngOnInit() {
+    this._cupcakesService.fetchPates().subscribe((pates: Pate[]) => this._pates = pates);
+    this._cupcakesService.fetchGlacages().subscribe((glacages: Glacage[]) => this._glacages = glacages);
+    this._cupcakesService.fetchToppings().subscribe((toppings: Topping[]) => this._toppings = toppings);
+    this._cupcakesService.fetchPates().subscribe((garnitures: Garniture[]) => this._garnitures = garnitures);
   }
 
   /**
@@ -90,9 +128,26 @@ export class FormComponent implements OnInit, OnChanges {
       this._form.patchValue(this._model);
     } else {
       this._model = {
-       /*TO DO*/
-        }//,
-        /*photo: 'https://randomuser.me/api/portraits/lego/6.jpg',*/
+        nom: '',
+        composition: {
+          pate: {
+            label: '',
+            src: ''
+          },
+          glacage: {
+            label: '',
+            src: ''
+          },
+          topping: {
+            label: '',
+            src: ''
+          },
+          garniture: {
+            label: '',
+            src: ''
+          }
+        },
+        createur: ''
       };
       this._isUpdateMode = false;
     }
@@ -117,26 +172,31 @@ export class FormComponent implements OnInit, OnChanges {
    */
   private _buildForm(): FormGroup {
     return new FormGroup({
-     /* id: new FormControl('0'),
-      firstname: new FormControl('', Validators.compose([
+      id: new FormControl('0'),
+      name: new FormControl('', Validators.compose([
         Validators.required, Validators.minLength(2)
       ])),
-      lastname: new FormControl('', Validators.compose([
-        Validators.required, Validators.minLength(2)
-      ])),
-      email: new FormControl('', Validators.compose([
-        Validators.required, CustomValidators.googleEmail
-      ])),
-      photo: new FormControl('https://randomuser.me/api/portraits/lego/6.jpg'),
-      address: new FormGroup({
-        street: new FormControl(''),
-        city: new FormControl(''),
-        postalCode: new FormControl('')
+      composition: new FormGroup({
+        pate: new FormGroup({
+          label: new FormControl(''),
+          src: new FormControl('')
+        }),
+        glacage: new FormGroup({
+          label: new FormControl(''),
+          src: new FormControl('')
+        }),
+        topping: new FormGroup({
+          label: new FormControl(''),
+          src: new FormControl('')
+        }),
+        garniture: new FormGroup({
+          label: new FormControl(''),
+          src: new FormControl('')
+        }),
       }),
-      phone: new FormControl('', Validators.compose([
-        Validators.required, Validators.pattern('\\d{10}')
-      ])),
-      isManager: new FormControl(false)*/
+      createur: new FormControl('', Validators.compose([
+        Validators.required, Validators.minLength(2)
+      ]))
     });
   }
 }

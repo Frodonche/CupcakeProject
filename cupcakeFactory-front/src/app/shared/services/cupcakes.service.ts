@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { Observable } from 'rxjs';
-import { Cupcake } from '../interfaces/cupcake';
+import {Cupcake, Garniture, Glacage, Pate, Topping} from '../interfaces/cupcake';
 import { defaultIfEmpty, filter, map } from 'rxjs/operators';
 
 @Injectable({
@@ -16,17 +16,26 @@ export class CupcakesService {
 
   constructor(private _http: HttpClient) {
     this._defaultCupcake = {
-     /* firstname: 'firstname',
-      lastname: 'lastname',
-      email: 'email@ema.il',
-      phone: '1234567890',
-      address: {
-        postalCode: '12345',
-        street: 'street',
-        city: 'city'*/
+        nom: 'Cupcake',
+      composition: {
+        pate: {
+          label: '',
+          src: ''
+        },
+        glacage: {
+          label: '',
+          src: ''
+        },
+        topping: {
+          label: '',
+          src: ''
+        },
+        garniture: {
+          label: '',
+          src: ''
+        }
       },
-     /* photo: 'https://randomuser.me/api/portraits/lego/6.jpg',
-      isManager: false*/
+      createur: ''
     };
     this._backendURL = {};
 
@@ -48,7 +57,7 @@ export class CupcakesService {
   }
 
   /**
-   * Function to return list of cupcake
+   * Function to return list of cupcakes
    */
   fetch(): Observable<Cupcake[]> {
     return this._http.get<Cupcake[]>(this._backendURL.allCupcakes)
@@ -57,6 +66,53 @@ export class CupcakesService {
         defaultIfEmpty([])
       );
   }
+
+  /**
+   * Function to return list of pates
+   */
+  fetchPates(): Observable<Pate[]> {
+    return this._http.get<Pate[]>(this._backendURL.allPates)
+      .pipe(
+        filter(_ => !!_),
+        defaultIfEmpty([])
+      );
+  }
+
+  /**
+   * Function to return list of glacages
+   */
+  fetchGlacages(): Observable<Glacage[]> {
+    return this._http.get<Glacage[]>(this._backendURL.allGlacages)
+      .pipe(
+        filter(_ => !!_),
+        defaultIfEmpty([])
+      );
+  }
+
+  /**
+   * Function to return list of toppings
+   */
+  fetchToppings(): Observable<Topping[]> {
+    return this._http.get<Topping[]>(this._backendURL.allToppings)
+      .pipe(
+        filter(_ => !!_),
+        defaultIfEmpty([])
+      );
+  }
+
+  /**
+   * Function to return list of garnitures
+   */
+  fetchGarnitures(): Observable<Garniture[]> {
+    return this._http.get<Garniture[]>(this._backendURL.allGarnitures)
+      .pipe(
+        filter(_ => !!_),
+        defaultIfEmpty([])
+      );
+  }
+
+
+
 
   /**
    * Function to return one random cupcake from cupcakes list

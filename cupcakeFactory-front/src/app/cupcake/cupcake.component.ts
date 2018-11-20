@@ -6,7 +6,7 @@ import { merge } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'nwt-cupcake',
+  selector: 'app-cupcake',
   templateUrl: './cupcake.component.html',
   styleUrls: [ './cupcake.component.css' ]
 })
@@ -17,7 +17,7 @@ export class CupcakeComponent implements OnInit {
   /**
    * Component constructor
    */
-  constructor(private _peopleService: CupcakesService, private _route: ActivatedRoute) {
+  constructor(private _cupcakesService: CupcakesService, private _route: ActivatedRoute) {
     this._cupcake = {} as Cupcake;
   }
 
@@ -46,10 +46,10 @@ export class CupcakeComponent implements OnInit {
   }
 
   /**
-   * Returns random people
+   * Returns random cupcakes
    */
   random() {
-    this._cupcakeService
+    this._cupcakesService
       .fetchRandom()
       .subscribe((cupcake: Cupcake) => this._cupcake = cupcake);
   }
