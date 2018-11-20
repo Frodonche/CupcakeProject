@@ -7,7 +7,7 @@ import { Cupcake } from '../shared/interfaces/cupcake';
 import { CupcakesService } from '../shared/services/cupcakes.service';
 
 @Component({
-  selector: 'nwt-update',
+  selector: 'app-update',
   templateUrl: './update.component.html',
   styleUrls: [ './update.component.css' ]
 })

@@ -111,7 +111,7 @@ db.getCollection('garnitures').insertMany([
   }
 ]);
 
-db.getCollection('toppings').insertMany([
+db.getCollection('toppings').insertManyf([
   {
     "label": "coeurs",
     "src": "coeurs.png"

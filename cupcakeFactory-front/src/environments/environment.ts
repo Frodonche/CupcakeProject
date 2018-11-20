@@ -6,11 +6,10 @@ export const environment = {
   production: true,
   backend: {
     protocol: 'http',
-    host: '127.0.0.1',
-    port: '9000',
+    host: '0.0.0.0',
+    port: '4443',
     endpoints: {
       allCupcakes: '/api/cupcakes',
-      randomCupcakes: '/api/cupcakes/random',
       oneCupcakes: '/api/cupcakes/:id',
       allPates: '/api/pates',
       allGlacages: '/api/glacages',

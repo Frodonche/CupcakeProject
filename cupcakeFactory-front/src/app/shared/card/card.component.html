@@ -3,17 +3,17 @@
   <mat-card-title-group>
     <img mat-card-md-image src="{{ cupcake.photo }}">
     <mat-card-title>
-      <a [routerLink]="['/cupcake', cupcake.id]">
-        <span>{{ cupcake.name }}</span>
+      <a [routerLink]="['/cupcake', cupcake._id]">
+        <span>{{ cupcake.nom }}</span>
       </a>
     </mat-card-title>
-    <mat-card-subtitle class="contact-info">
+   <mat-card-subtitle class="contact-info">
       <span>{{ cupcake.createur }}</span>
     </mat-card-subtitle>
 
   </mat-card-title-group>
     <div class="buttons-info">
-      <a mat-button title="Edit" [routerLink]="['/edit', cupcake.id]">
+      <a mat-button title="Edit" [routerLink]="['/edit', cupcake._id]">
         <mat-icon svgIcon="icon-edit"></mat-icon>
       </a>
       <button mat-button title="Delete" (click)="delete(cupcake)">
