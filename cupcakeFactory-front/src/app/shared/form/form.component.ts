@@ -115,7 +115,7 @@ export class FormComponent implements OnInit, OnChanges {
     this._cupcakesService.fetchPates().subscribe((pates: Pate[]) => this._pates = pates);
     this._cupcakesService.fetchGlacages().subscribe((glacages: Glacage[]) => this._glacages = glacages);
     this._cupcakesService.fetchToppings().subscribe((toppings: Topping[]) => this._toppings = toppings);
-    this._cupcakesService.fetchPates().subscribe((garnitures: Garniture[]) => this._garnitures = garnitures);
+    this._cupcakesService.fetchGarnitures().subscribe((garnitures: Garniture[]) => this._garnitures = garnitures);
   }
 
   /**
