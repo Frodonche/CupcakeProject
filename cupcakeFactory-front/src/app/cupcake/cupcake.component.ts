@@ -25,6 +25,7 @@ export class CupcakeComponent implements OnInit {
    * Returns private property _cupcake
    */
   get cupcake(): Cupcake {
+    console.log(this._cupcake);
     return this._cupcake;
   }
 

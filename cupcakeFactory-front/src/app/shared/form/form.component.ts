@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import {Cupcake, Garniture, Glacage, Base, Topping} from '../interfaces/cupcake';
-import {CupcakesService} from "../services/cupcakes.service";
+import { Cupcake, Garniture, Glacage, Base, Topping } from '../interfaces/cupcake';
+import { CupcakesService } from '../services/cupcakes.service';
 
 @Component({
   selector: 'app-form',

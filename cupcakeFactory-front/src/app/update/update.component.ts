@@ -43,7 +43,7 @@ export class UpdateComponent implements OnInit {
             filter(_ => !!_),
             flatMap(_ => this._cupcakesService.update(_))
           )
-          .subscribe(null, null, () => this._router.navigate([ '/cupcakess' ]));
+          .subscribe(null, null, () => this._router.navigate([ '/cupcakes' ]));
       });
   }
 }

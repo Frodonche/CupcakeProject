@@ -32,26 +32,57 @@ let CupcakeModel = CupcakeModel_1 = class CupcakeModel extends mongo_1.Model {
                 trim: true
             },
             composition: {
-                pate: {
-                    type: String,
-                    required: true,
-                    trim: true
-                },
-                garniture: {
-                    type: String,
-                    trim: true
+                base: {
+                    label: {
+                        type: String,
+                        required: true,
+                        trim: true
+                    },
+                    src: {
+                        type: String,
+                        required: true,
+                        trim: true
+                    }
                 },
                 glacage: {
-                    type: String,
-                    trim: true
+                    label: {
+                        type: String,
+                        required: true,
+                        trim: true
+                    },
+                    src: {
+                        type: String,
+                        required: true,
+                        trim: true
+                    }
                 },
                 topping: {
-                    type: String,
-                    trim: true
+                    label: {
+                        type: String,
+                        required: true,
+                        trim: true
+                    },
+                    src: {
+                        type: String,
+                        required: true,
+                        trim: true
+                    }
+                },
+                garniture: {
+                    label: {
+                        type: String,
+                        required: true,
+                        trim: true
+                    },
+                    src: {
+                        type: String,
+                        required: true,
+                        trim: true
+                    }
                 }
             },
-            custom: {
-                type: Boolean,
+            createur: {
+                type: String,
                 required: true,
                 trim: true
             }
