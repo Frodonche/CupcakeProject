@@ -79,7 +79,7 @@ export class CupcakesComponent implements OnInit {
 
     // open modal
     this._cupcakesDialog = this._dialog.open(DialogComponent, {
-      width: '500px',
+      minWidth: '600px',
       disableClose: true
     });
 

@@ -35,24 +35,25 @@
   </form>
 <h4>Composition</h4>
 <div class="align-right">
+      <h5>Base</h5>
       <mat-form-field>
         <mat-select placeholder="{{ model.composition.base.label }}" [(ngModel)]="model.composition.base" name="bases">
           <mat-option *ngFor="let base of bases" [value]="base">{{base.label}}</mat-option>
         </mat-select>
       </mat-form-field>
-      <br>
+      <h5>Glacage</h5>
       <mat-form-field>
         <mat-select placeholder="{{ model.composition.glacage.label }}" [(ngModel)]="model.composition.glacage" name="glacages">
           <mat-option *ngFor="let glacage of glacages" [value]="glacage">{{glacage.label}}</mat-option>
         </mat-select>
       </mat-form-field>
-      <br>
+      <h5>Topping</h5>
       <mat-form-field>
         <mat-select placeholder="{{ model.composition.topping.label }}" [(ngModel)]="model.composition.topping" name="toppings">
           <mat-option *ngFor="let topping of toppings" [value]="topping">{{topping.label}}</mat-option>
         </mat-select>
       </mat-form-field>
-      <br>
+      <h5>Garniture</h5>
       <mat-form-field>
         <mat-select placeholder="{{ model.composition.garniture.label }}" [(ngModel)]="model.composition.garniture" name="garnitures">
           <mat-option *ngFor="let garniture of garnitures" [value]="garniture">{{garniture.label}}</mat-option>
