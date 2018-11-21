@@ -2,7 +2,6 @@
 <h2 mat-dialog-title *ngIf="!isUpdateMode">Création d'un nouveau cupcake !</h2>
 
   <form novalidate [formGroup]="form">
-
     <table class="full-width" cellspacing="0">
       <tr>
         <td>
@@ -26,44 +25,47 @@
           </mat-form-field>
         </td>
       </tr>
+      <td>
+        <img class="cupcake" src="../../../assets/res/Bases/{{ model.composition.base.src }}">
+        <img class="cupcake" src="../../../assets/res/Glacages/{{ model.composition.glacage.src }}">
+        <img class="cupcake" src="../../../assets/res/Topping/{{ model.composition.topping.src }}">
+        <img class="cupcake" src="../../../assets/res/Garnitures/{{ model.composition.garniture.src }}">
+      </td>
     </table>
   </form>
 <h4>Composition</h4>
-<mat-form-field>
-  <mat-select placeholder="{{ model.composition.base.label }}" [(ngModel)]="model.composition.base" name="bases">
-    <mat-option *ngFor="let base of bases" [value]="base">{{base.label}}</mat-option>
-  </mat-select>
-</mat-form-field>
-
-<mat-form-field>
-  <mat-select placeholder="{{ model.composition.glacage.label }}" [(ngModel)]="model.composition.glacage" name="glacages">
-    <mat-option *ngFor="let glacage of glacages" [value]="glacage">{{glacage.label}}</mat-option>
-  </mat-select>
-</mat-form-field>
-
-<mat-form-field>
-  <mat-select placeholder="{{ model.composition.topping.label }}" [(ngModel)]="model.composition.topping" name="toppings">
-    <mat-option *ngFor="let topping of toppings" [value]="topping">{{topping.label}}</mat-option>
-  </mat-select>
-</mat-form-field>
-
-<mat-form-field>
-  <mat-select placeholder="{{ model.composition.garniture.label }}" [(ngModel)]="model.composition.garniture" name="garnitures">
-    <mat-option *ngFor="let garniture of garnitures" [value]="garniture">{{garniture.label}}</mat-option>
-  </mat-select>
-</mat-form-field>
-
+<div class="align-right">
+      <mat-form-field>
+        <mat-select placeholder="{{ model.composition.base.label }}" [(ngModel)]="model.composition.base" name="bases">
+          <mat-option *ngFor="let base of bases" [value]="base">{{base.label}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-select placeholder="{{ model.composition.glacage.label }}" [(ngModel)]="model.composition.glacage" name="glacages">
+          <mat-option *ngFor="let glacage of glacages" [value]="glacage">{{glacage.label}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-select placeholder="{{ model.composition.topping.label }}" [(ngModel)]="model.composition.topping" name="toppings">
+          <mat-option *ngFor="let topping of toppings" [value]="topping">{{topping.label}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-select placeholder="{{ model.composition.garniture.label }}" [(ngModel)]="model.composition.garniture" name="garnitures">
+          <mat-option *ngFor="let garniture of garnitures" [value]="garniture">{{garniture.label}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+  <br>
+</div>
+<br>
 <mat-dialog-actions align="end">
   <button mat-button type="button" (click)="cancel()">Cancel</button>
   <button mat-button color="primary" type="submit" (click)="submit(model)" [disabled]="form.invalid">Save</button>
 </mat-dialog-actions>
-<form>
-
-</form>
 
 
-<img class="cupcake" src="../../../assets/res/Bases/{{ model.composition.base.src }}">
-<img class="cupcake" src="../../../assets/res/Glacages/{{ model.composition.glacage.src }}">
-<img class="cupcake" src="../../../assets/res/Topping/{{ model.composition.topping.src }}">
-<img class="cupcake" src="../../../assets/res/Garnitures/{{ model.composition.garniture.src }}">
+
 

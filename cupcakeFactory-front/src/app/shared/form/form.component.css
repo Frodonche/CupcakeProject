@@ -1,6 +1,6 @@
 img.cupcake {
-  position: absolute;
-  width: 50%;
+  position: fixed;
+  max-width: 360px;
   height: auto;
 }
 

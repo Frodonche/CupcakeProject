@@ -32,7 +32,7 @@ export class UpdateComponent implements OnInit {
       )
       .subscribe((cupcake: Cupcake) => {
         this._cupcakesDialog = this._dialog.open(DialogComponent, {
-          width: '500px',
+          minWidth: '600px',
           disableClose: true,
           data: cupcake
         });
