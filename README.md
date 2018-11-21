@@ -15,8 +15,8 @@ Select one of our cupcakes or create your own one before ordering it ! **
     - cd cupcakeFactory-front : yarn install
     - create the mongodb database and collections by copy/pasting the script located into cupcakeFactory-back/scripts/init.mongo.js
     - launch the database
-    - launch cupcakeFactory-back
-    - launch cupcakeFactory-front
+    - launch launchBack.sh
+    - launch launchFront.sh
     - access the homepage at http://localhost:4200/
 
 * Project advancement
