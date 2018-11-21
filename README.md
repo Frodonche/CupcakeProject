@@ -1,5 +1,5 @@
 ** Cupcake Factory - 
-Select one of our cupcakes or create your own one before ordering it !
+Select one of our cupcakes or create your own one before ordering it ! **
 
 * Requirements
     - angular v7.0.6
