@@ -1,4 +1,4 @@
-Cupcake Factory
+Cupcake Factory - 
 Select one of our cupcakes or create your own one before ordering it !
 
 * Requirements
