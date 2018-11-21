@@ -6,7 +6,6 @@ Select one of our cupcakes or create your own one before ordering it ! **
     - yarn v1.10.1
     - node v10.6.0
     - mongodb v4.0.3
-    - Webstorm v2018.2.3
     - Ubuntu 17+
 
 * Setup instructions
