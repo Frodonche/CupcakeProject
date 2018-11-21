@@ -4,21 +4,26 @@ import * as Joi from 'joi';
 export const ID_PARAMETER = Joi.string().required();
 
 export const CUPCAKE_PAYLOAD = Joi.object().keys({
+    id: ID_PARAMETER,
     nom: Joi.string(),
     composition: Joi.object().keys({
       base: Joi.object().keys({
+        id: Joi.string(),
         label: Joi.string(),
         src: Joi.string()
       }),
       glacage: Joi.object().keys({
+        id: Joi.string(),
         label: Joi.string(),
         src: Joi.string()
       }),
       topping: Joi.object().keys({
+        id: Joi.string(),
         label: Joi.string(),
         src: Joi.string()
       }),
       garniture: Joi.object().keys({
+        id: Joi.string(),
         label: Joi.string(),
         src: Joi.string()
       })

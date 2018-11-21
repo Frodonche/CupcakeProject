@@ -129,7 +129,6 @@ export class FormComponent implements OnInit, OnChanges {
     if (record.model && record.model.currentValue) {
       console.log('EXISTE');
       this._model = record.model.currentValue;
-      console.log(this._model);
       this._isUpdateMode = true;
       this._form.patchValue(this._model);
     } else {
@@ -138,19 +137,23 @@ export class FormComponent implements OnInit, OnChanges {
         nom: '',
         composition: {
           base: {
+            id: '0',
             label: 'Base',
             src: '../../../assets/res/Bases/base.png'
           },
           glacage: {
+            id: '0',
             label: 'Base',
             src: '../../../assets/res/Glacages/base.png'
           },
           topping: {
-            label: 'Base',
+            id: '0',
+            label: 'Sans',
             src: '../../../assets/res/Topping/base.png'
           },
           garniture: {
-            label: 'Base',
+            id: '0',
+            label: 'Sans',
             src: '../../../assets/res/Garnitures/base.png'
           }
         },
@@ -171,6 +174,7 @@ export class FormComponent implements OnInit, OnChanges {
    * Function to emit event to submit form and cupcake
    */
   submit(cupcake: Cupcake) {
+    cupcake.composition = this._model.composition;
     this._submit$.emit(cupcake);
   }
 

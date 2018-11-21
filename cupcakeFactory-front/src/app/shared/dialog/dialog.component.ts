@@ -39,7 +39,7 @@ export class DialogComponent implements OnInit {
    * Function to close the modal and send cupcake to parent
    */
   onSave(cupcake: Cupcake) {
-    console.log(cupcake);
+    console.log(JSON.stringify(cupcake));
     this._dialogRef.close(cupcake);
   }
 }

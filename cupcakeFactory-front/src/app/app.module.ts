@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
   MatButtonModule,
   MatCardModule,
@@ -52,13 +52,13 @@ import { HttpClientModule } from '@angular/common/http';
     MatCheckboxModule,
     MatDialogModule,
     MatInputModule,
+    FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatOptionModule,
     MatSelectModule,
     MatGridListModule,
-    HttpClientModule,
-    FormsModule
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
