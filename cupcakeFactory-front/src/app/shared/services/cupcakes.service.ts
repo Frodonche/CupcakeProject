@@ -16,26 +16,26 @@ export class CupcakesService {
 
   constructor(private _http: HttpClient) {
     this._defaultCupcake = {
-        nom: 'Cupcake',
-      composition: {
-        base: {
-          label: '',
-          src: ''
-        },
-        glacage: {
-          label: '',
-          src: ''
-        },
-        topping: {
-          label: '',
-          src: ''
-        },
-        garniture: {
-          label: '',
-          src: ''
-        }
+        nom: 'Cupcake de base',
+        composition: {
+          base: {
+            label: 'Base',
+            src: '../../../assets/res/Bases/base.png'
+          },
+          glacage: {
+            label: 'Base',
+            src: '../../../assets/res/Glacages/base.png'
+         },
+          topping: {
+            label: 'Base',
+            src: '../../../assets/res/Topping/base.png'
+         },
+         garniture: {
+           label: 'Base',
+           src: '../../../assets/res/Garnitures/base.png'
+         }
       },
-      createur: ''
+      createur: 'Base'
     };
     this._backendURL = {};
 
@@ -110,9 +110,6 @@ export class CupcakesService {
         defaultIfEmpty([])
       );
   }
-
-
-
 
   /**
    * Function to return one random cupcake from cupcakes list

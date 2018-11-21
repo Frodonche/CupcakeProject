@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Cupcake } from '../interfaces/cupcake';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-card',
@@ -16,7 +15,7 @@ export class CardComponent implements OnInit {
   /**
    * Component constructor
    */
-  constructor(private _router: Router) {
+  constructor() {
     this._cupcake = {} as Cupcake;
     this._delete$ = new EventEmitter<Cupcake>();
   }

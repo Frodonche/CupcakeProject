@@ -32,6 +32,10 @@ export class FormComponent implements OnInit, OnChanges {
     this._submit$ = new EventEmitter<Cupcake>();
     this._cancel$ = new EventEmitter<void>();
     this._form = this._buildForm();
+    this._bases = [];
+    this._glacages = [];
+    this._toppings = [];
+    this._garnitures = [];
   }
 
   /**
@@ -112,7 +116,7 @@ export class FormComponent implements OnInit, OnChanges {
    * OnInit implementation
    */
   ngOnInit() {
-    this._cupcakesService.fetchBases().subscribe((bases: Base[]) => this._bases = bases);
+    this._cupcakesService.fetchBases().subscribe((bases: Base[]) => this._bases = bases );
     this._cupcakesService.fetchGlacages().subscribe((glacages: Glacage[]) => this._glacages = glacages);
     this._cupcakesService.fetchToppings().subscribe((toppings: Topping[]) => this._toppings = toppings);
     this._cupcakesService.fetchGarnitures().subscribe((garnitures: Garniture[]) => this._garnitures = garnitures);
@@ -122,29 +126,32 @@ export class FormComponent implements OnInit, OnChanges {
    * Function to handle component update
    */
   ngOnChanges(record) {
-    if (record.model && record.model.currentValue && record.model.currentValue.address) {
+    if (record.model && record.model.currentValue) {
+      console.log('EXISTE');
       this._model = record.model.currentValue;
+      console.log(this._model);
       this._isUpdateMode = true;
       this._form.patchValue(this._model);
     } else {
+      console.log('EXISTE PAS');
       this._model = {
         nom: '',
         composition: {
           base: {
-            label: '',
-            src: ''
+            label: 'Base',
+            src: '../../../assets/res/Bases/base.png'
           },
           glacage: {
-            label: '',
-            src: ''
+            label: 'Base',
+            src: '../../../assets/res/Glacages/base.png'
           },
           topping: {
-            label: '',
-            src: ''
+            label: 'Base',
+            src: '../../../assets/res/Topping/base.png'
           },
           garniture: {
-            label: '',
-            src: ''
+            label: 'Base',
+            src: '../../../assets/res/Garnitures/base.png'
           }
         },
         createur: ''
@@ -176,24 +183,6 @@ export class FormComponent implements OnInit, OnChanges {
       nom: new FormControl('', Validators.compose([
         Validators.required, Validators.minLength(2)
       ])),
-      composition: new FormGroup({
-        base: new FormGroup({
-          label: new FormControl(''),
-          src: new FormControl('')
-        }),
-        glacage: new FormGroup({
-          label: new FormControl(''),
-          src: new FormControl('')
-        }),
-        topping: new FormGroup({
-          label: new FormControl(''),
-          src: new FormControl('')
-        }),
-        garniture: new FormGroup({
-          label: new FormControl(''),
-          src: new FormControl('')
-        }),
-      }),
       createur: new FormControl('', Validators.compose([
         Validators.required, Validators.minLength(2)
       ]))

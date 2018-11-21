@@ -1,16 +1,7 @@
-<h2 mat-dialog-title *ngIf="isUpdateMode">Update {{ form.get('nom').value }} {{ form.get('createur').value }}</h2>
-<h2 mat-dialog-title *ngIf="!isUpdateMode">Create new cupcake</h2>
+<h2 mat-dialog-title *ngIf="isUpdateMode">Update {{ form.get('nom').value }} crée par {{ form.get('createur').value }}</h2>
+<h2 mat-dialog-title *ngIf="!isUpdateMode">Création d'un nouveau cupcake !</h2>
 
-<mat-dialog-content>
-
-  <mat-grid-list cols="2" rowHeight="1:1">
-    <mat-grid-tile>
   <form novalidate [formGroup]="form">
-
-    <p *ngIf="isUpdateMode">
-      <span style="width:100%">ID (disabled)</span><br/>
-      <span style="width:100%">{{model.id}}</span>
-    </p>
 
     <table class="full-width" cellspacing="0">
       <tr>
@@ -36,62 +27,43 @@
         </td>
       </tr>
     </table>
+  </form>
+<h4>Composition</h4>
+<mat-form-field>
+  <mat-select placeholder="{{ model.composition.base.label }}" [(ngModel)]="model.composition.base" name="bases">
+    <mat-option *ngFor="let base of bases" [value]="base">{{base.label}}</mat-option>
+  </mat-select>
+</mat-form-field>
 
-    <p formGroupName="composition">
-      <mat-form-field class="full-width">
-        <mat-select placeholder="Base" formControlName="Base" name="Base">
-          <mat-option *ngFor="let base of bases" [id]="base.id">
-            {{base.label}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-    </p>
+<mat-form-field>
+  <mat-select placeholder="{{ model.composition.glacage.label }}" [(ngModel)]="model.composition.glacage" name="glacages">
+    <mat-option *ngFor="let glacage of glacages" [value]="glacage">{{glacage.label}}</mat-option>
+  </mat-select>
+</mat-form-field>
 
-    <p formGroupName="composition">
-      <mat-form-field class="full-width">
-        <mat-select placeholder="Glaçage" formControlName="Glaçage" name="Glaçage">
-          <mat-option *ngFor="let glacage of glacages" [id]="glacage.id">
-            {{glacage.label}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-    </p>
+<mat-form-field>
+  <mat-select placeholder="{{ model.composition.topping.label }}" [(ngModel)]="model.composition.topping" name="toppings">
+    <mat-option *ngFor="let topping of toppings" [value]="topping">{{topping.label}}</mat-option>
+  </mat-select>
+</mat-form-field>
 
-    <p formGroupName="composition">
-      <mat-form-field class="full-width">
-        <mat-select placeholder="Topping" formControlName="Topping" name="Topping">
-          <mat-option *ngFor="let topping of toppings" [id]="topping.id">
-            {{topping.label}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-    </p>
-
-    <p formGroupName="composition">
-      <mat-form-field class="full-width">
-        <mat-select placeholder="Garniture" formControlName="Garniture" name="Garniture">
-          <mat-option *ngFor="let garniture of garnitures" [id]="garniture.id">
-            {{garniture.label}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-    </p>
-
-
-  </form></mat-grid-tile>
-    <mat-grid-tile>
-      <div >
-        <img class="cupcake" name="base" src="../../../assets/res/Bases/base_barbe_a_papa.png">
-        <img class="cupcake" name="glacage" src="../../../assets/res/Glacages/creme_pomme.png">
-        <img class="cupcake" name="topping" src="../../../assets/res/Topping/coeurs.png">
-        <img class="cupcake" name="garniture" src="../../../assets/res/Garnitures/cerise.png">
-      </div>
-    </mat-grid-tile>
-  </mat-grid-list>
-</mat-dialog-content>
-
+<mat-form-field>
+  <mat-select placeholder="{{ model.composition.garniture.label }}" [(ngModel)]="model.composition.garniture" name="garnitures">
+    <mat-option *ngFor="let garniture of garnitures" [value]="garniture">{{garniture.label}}</mat-option>
+  </mat-select>
+</mat-form-field>
 
 <mat-dialog-actions align="end">
   <button mat-button type="button" (click)="cancel()">Cancel</button>
-  <button mat-button color="primary" type="submit" (click)="submit(form.value)" [disabled]="form.invalid">Save</button>
+  <button mat-button color="primary" type="submit" (click)="submit(model)" [disabled]="form.invalid">Save</button>
 </mat-dialog-actions>
+<form>
+
+</form>
+
+
+<img class="cupcake" src="../../../assets/res/Bases/{{ model.composition.base.src }}">
+<img class="cupcake" src="../../../assets/res/Glacages/{{ model.composition.glacage.src }}">
+<img class="cupcake" src="../../../assets/res/Topping/{{ model.composition.topping.src }}">
+<img class="cupcake" src="../../../assets/res/Garnitures/{{ model.composition.garniture.src }}">
+

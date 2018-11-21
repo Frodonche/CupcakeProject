@@ -1,6 +1,7 @@
 img.cupcake {
   position: absolute;
-  width: 100%;
+  position: center;
+  max-width: 360px;
   height: auto;
 }
 
@@ -17,6 +18,7 @@ mat-list-item {
   background-color: white;
   margin: 10px;
   width: 360px;
+  height: 400px;
 }
 
 mat-card:hover {
