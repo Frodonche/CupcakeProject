@@ -160,6 +160,10 @@ db.getCollection('garnitures').insertMany([
   {
     "label": "Sans",
     "src": "base.png"
+  },
+  {
+    "label": "Rambo",
+    "src": "rambo.png"
   }
 ]);
 
@@ -179,5 +183,14 @@ db.getCollection('toppings').insertMany([
   {
     "label": "Sans",
     "src": "base.png"
+  },
+  {
+    "label": "Rambo",
+    "src": "rambo.png"
+  },
+	{
+    "label": "J'aime Angular",
+    "src": "angular.png"
   }
+
 ]);
